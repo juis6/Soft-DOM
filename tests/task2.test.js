@@ -8,7 +8,7 @@ const puppeteer = require('puppeteer');
     await page.goto('http://127.0.0.1:5500/index.html'); 
   
     await page.click('#button1'); 
-    await page.waitForTimeout(1000);
+    await new Promise(resolve => setTimeout(resolve, 1000));
     const firstColor = await page.evaluate(() => {
         return getComputedStyle(document.body).backgroundColor;
     });
@@ -33,7 +33,7 @@ const puppeteer = require('puppeteer');
   
 
     await page.click('#button2', { clickCount: 2 });
-    await page.waitForTimeout(1000);
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     const secondColor = await page.evaluate(() => {
         return getComputedStyle(document.body).backgroundColor;

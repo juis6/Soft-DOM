@@ -21,7 +21,7 @@ const puppeteer = require('puppeteer');
   const initialHeight = await getTextFromSelector(heightSelector);
 
   await page.setViewport({ width: 1000, height: 1000 });
-  await page.waitForTimeout(1000);
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   const updatedWidth = await getTextFromSelector(widthSelector);
   const updatedHeight = await getTextFromSelector(heightSelector);
